@@ -6,11 +6,25 @@ from pygame.locals import *
 class Game_math:
     def __init__(self):
         self.state = 'math'
-        pygame.init()
+        self.sprite = []
+        
         self.largura = 1600
         self.altura = 900
+        pygame.init()
         self.start_game()
         
+        
+        
+    def players(self):
+        
+        self.sprite.append(pygame.image.load('./img/personagens/mordecai/animation_mordecai0.png'))
+        self.sprite.append(pygame.image.load('./img/personagens/mordecai/animation_mordecai1.png'))
+        self.atual = 0
+        self.image = self.sprite[self.atual]
+        self.image = pygame.transform.scale(self.image, (100, 200))
+        self.rect = self.image.get_rect(center=(600, 590))
+        write = self.tela.blit(self.image, self.rect)
+        return write
         
     def Tela(self):
         
@@ -39,6 +53,7 @@ class Game_math:
 
         while True:
             self.tela_position()
+            self.players()
 
             pygame.display.flip()
             
