@@ -50,52 +50,63 @@ class Game_tela2:
         
         
     def button_math(self):
-        
+        from niveis import Niveis
         math = pygame.image.load('./img/botoes/materias/matematica.png')
         buttonmath = pygame.transform.scale(math, (300, 100))
         button_math_position = buttonmath.get_rect(center=(400, 300))
         ButtonMath = self.tela.blit(buttonmath, button_math_position)
         
+        for evento in pygame.event.get():
+            if evento.type == pygame.MOUSEBUTTONDOWN:
+               if button_math_position.collidepoint(evento.pos):
+                     Niveis()
+        
         return ButtonMath
     
     
     def button_science(self):
-    
+        from niveis import Niveis
         science = pygame.image.load('./img/botoes/materias/ciencia.png')
         button_science = pygame.transform.scale(science, (300, 100))
         button_science_position = button_science.get_rect(center=(900, 300)) 
         ButtonScience = self.tela.blit(button_science, button_science_position)  
            
+        for evento in pygame.event.get():
+            if evento.type == pygame.MOUSEBUTTONDOWN:
+               if button_science_position.collidepoint(evento.pos):
+                     Niveis()
+                     
         return ButtonScience
         
     def button_portuguese(self):
-        
+        from niveis import Niveis
         portuguese = pygame.image.load('./img/botoes/materias/portugues.png')
         button_portuguese = pygame.transform.scale(portuguese, (300, 100))
         button_portuguese_position = button_portuguese.get_rect(center=(900, 500))
         ButtonPortuguese = self.tela.blit(button_portuguese, button_portuguese_position)
-        
+        for evento in pygame.event.get():
+            if evento.type == pygame.MOUSEBUTTONDOWN:
+               if button_portuguese_position.collidepoint(evento.pos):
+                     Niveis()
         return ButtonPortuguese
         
         
         
     def button_english(self):
-        
+        from niveis import Niveis
         english = pygame.image.load('./img/botoes/materias/ingles.png')
         button_english = pygame.transform.scale(english, (300, 100))
         button_english_position = button_english.get_rect(center=(400, 500))
         ButtonEnglish = self.tela.blit(button_english, button_english_position)
-        
+        for evento in pygame.event.get():
+            if evento.type == pygame.MOUSEBUTTONDOWN:
+               if button_english_position.collidepoint(evento.pos):
+                     Niveis()
         return ButtonEnglish
         
         
         
-    def exit_game(self):
-        for evento in pygame.event.get():
-            if evento.type == pygame.QUIT:
-                pygame.quit()
-                exit()
-                
+
                 
     def start_game(self):
         
@@ -103,6 +114,9 @@ class Game_tela2:
         self.title()
 
         while True:
+            
+            
+            
             self.tela_position()
             self.button_back()
             self.button_math()

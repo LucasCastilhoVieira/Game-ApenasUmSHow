@@ -62,8 +62,11 @@ class Game_Main:
 
             self.Tela()
             self.title()
-            
+            pygame.mixer.init()
+            pygame.mixer.music.load('music.wav')
+            pygame.mixer.music.play()
             while True:
+
                 self.tela_position()
                 #titulo game
                 self.title_background()
